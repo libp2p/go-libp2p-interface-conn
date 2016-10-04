@@ -27,12 +27,6 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmUDjsP471mkH5F4DoD5jQaTybX7ENU6YDULwQi9Keu3Vi",
-      "name": "go-libp2p-transport",
-      "version": "2.1.2"
-    },
-    {
-      "author": "whyrusleeping",
       "hash": "QmaRNdghe7SY53L9WfyVesio7yvVnyXtgSpbBd9CJYfvJg",
       "name": "go-maddr-filter",
       "version": "1.0.0"
@@ -42,6 +36,7 @@
   "language": "go",
   "license": "",
   "name": "go-libp2p-interface-conn",
-  "version": "0.0.0"
+  "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
+  "version": "0.1.0"
 }
 

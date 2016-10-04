@@ -1,14 +1,15 @@
 package conn
 
 import (
+	"fmt"
 	"io"
 	"net"
 	"time"
 
-	transport "gx/ipfs/QmUDjsP471mkH5F4DoD5jQaTybX7ENU6YDULwQi9Keu3Vi/go-libp2p-transport"
 	ic "gx/ipfs/QmVoi5es8D5fNHZDqoW6DgDAEPEV5hQp8GBz161vZXiwpQ/go-libp2p-crypto"
 	peer "gx/ipfs/QmWXjJo15p4pzT7cayEwZi2sWgJqLnGDof6ZGMh9xBgU1p/go-libp2p-peer"
 	ma "gx/ipfs/QmYzDkkgAEmrcNzFCiYo6L1dTX4EAG1gZkbtdbd9trL4vd/go-multiaddr"
+	u "gx/ipfs/QmZNVWh8LLjAavuQ2JXuFmuYH3C11xo988vSgp7UQrTRj1/go-ipfs-util"
 	filter "gx/ipfs/QmaRNdghe7SY53L9WfyVesio7yvVnyXtgSpbBd9CJYfvJg/go-maddr-filter"
 )
 
@@ -44,30 +45,6 @@ type Conn interface {
 	io.Writer
 }
 
-// Dialer is an object that can open connections. We could have a "convenience"
-// Dial function as before, but it would have many arguments, as dialing is
-// no longer simple (need a peerstore, a local peer, a context, a network, etc)
-type Dialer struct {
-	// LocalPeer is the identity of the local Peer.
-	LocalPeer peer.ID
-
-	// LocalAddrs is a set of local addresses to use.
-	//LocalAddrs []ma.Multiaddr
-
-	// Dialers are the sub-dialers usable by this dialer
-	// selected in order based on the address being dialed
-	Dialers []transport.Dialer
-
-	// PrivateKey used to initialize a secure connection.
-	// Warning: if PrivateKey is nil, connection will not be secured.
-	PrivateKey ic.PrivKey
-
-	// Wrapper to wrap the raw connection (optional)
-	Wrapper WrapFunc
-
-	fallback transport.Dialer
-}
-
 // Listener is an object that can accept connections. It matches net.Listener
 type Listener interface {
 
@@ -97,3 +74,19 @@ type Listener interface {
 // protocols, achieve implementation interop, or for private networks which
 // -- for whatever reason -- _must_ run unencrypted.
 var EncryptConnections = true
+
+// ID returns the ID of a given Conn.
+func ID(c Conn) string {
+	l := fmt.Sprintf("%s/%s", c.LocalMultiaddr(), c.LocalPeer().Pretty())
+	r := fmt.Sprintf("%s/%s", c.RemoteMultiaddr(), c.RemotePeer().Pretty())
+	lh := u.Hash([]byte(l))
+	rh := u.Hash([]byte(r))
+	ch := u.XOR(lh, rh)
+	return peer.ID(ch).Pretty()
+}
+
+// String returns the user-friendly String representation of a conn
+func String(c Conn, typ string) string {
+	return fmt.Sprintf("%s (%s) <-- %s %p --> (%s) %s",
+		c.LocalPeer(), c.LocalMultiaddr(), typ, c, c.RemoteMultiaddr(), c.RemotePeer())
+}
