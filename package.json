@@ -1,0 +1,47 @@
+{
+  "author": "whyrusleeping",
+  "bugs": {
+    "url": "https://github.com/libp2p/go-libp2p-interface-conn"
+  },
+  "gx": {
+    "dvcsimport": "github.com/libp2p/go-libp2p-interface-conn"
+  },
+  "gxDependencies": [
+    {
+      "author": "whyrusleeping",
+      "hash": "QmVoi5es8D5fNHZDqoW6DgDAEPEV5hQp8GBz161vZXiwpQ",
+      "name": "go-libp2p-crypto",
+      "version": "1.0.4"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmYzDkkgAEmrcNzFCiYo6L1dTX4EAG1gZkbtdbd9trL4vd",
+      "name": "go-multiaddr",
+      "version": "0.0.0"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmWXjJo15p4pzT7cayEwZi2sWgJqLnGDof6ZGMh9xBgU1p",
+      "name": "go-libp2p-peer",
+      "version": "2.0.4"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmUDjsP471mkH5F4DoD5jQaTybX7ENU6YDULwQi9Keu3Vi",
+      "name": "go-libp2p-transport",
+      "version": "2.1.2"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmaRNdghe7SY53L9WfyVesio7yvVnyXtgSpbBd9CJYfvJg",
+      "name": "go-maddr-filter",
+      "version": "1.0.0"
+    }
+  ],
+  "gxVersion": "0.9.1",
+  "language": "go",
+  "license": "",
+  "name": "go-libp2p-interface-conn",
+  "version": "0.0.0"
+}
+
