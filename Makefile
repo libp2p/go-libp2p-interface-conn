@@ -1,5 +1,3 @@
-export IPFS_API ?= v04x.ipfs.io
-
 gx:
 	go get github.com/whyrusleeping/gx
 	go get github.com/whyrusleeping/gx-go
