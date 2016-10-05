@@ -6,11 +6,11 @@ import (
 	"net"
 	"time"
 
-	ic "gx/ipfs/QmVoi5es8D5fNHZDqoW6DgDAEPEV5hQp8GBz161vZXiwpQ/go-libp2p-crypto"
-	peer "gx/ipfs/QmWXjJo15p4pzT7cayEwZi2sWgJqLnGDof6ZGMh9xBgU1p/go-libp2p-peer"
-	ma "gx/ipfs/QmYzDkkgAEmrcNzFCiYo6L1dTX4EAG1gZkbtdbd9trL4vd/go-multiaddr"
+	ic "github.com/libp2p/go-libp2p-crypto"
+	peer "github.com/libp2p/go-libp2p-peer"
+	filter "github.com/libp2p/go-maddr-filter"
+	ma "github.com/multiformats/go-multiaddr"
 	u "gx/ipfs/QmZNVWh8LLjAavuQ2JXuFmuYH3C11xo988vSgp7UQrTRj1/go-ipfs-util"
-	filter "gx/ipfs/QmaRNdghe7SY53L9WfyVesio7yvVnyXtgSpbBd9CJYfvJg/go-maddr-filter"
 )
 
 type PeerConn interface {
