@@ -49,7 +49,7 @@ type Conn interface {
 type Listener interface {
 
 	// Accept waits for and returns the next connection to the listener.
-	Accept() (net.Conn, error)
+	Accept() (Conn, error)
 
 	// Addr is the local address
 	Addr() net.Addr
