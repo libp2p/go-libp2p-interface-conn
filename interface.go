@@ -9,6 +9,7 @@ import (
 	u "github.com/ipfs/go-ipfs-util"
 	ic "github.com/libp2p/go-libp2p-crypto"
 	peer "github.com/libp2p/go-libp2p-peer"
+	tpt "github.com/libp2p/go-libp2p-transport"
 	filter "github.com/libp2p/go-maddr-filter"
 	ma "github.com/multiformats/go-multiaddr"
 )
@@ -40,6 +41,7 @@ type Conn interface {
 	SetDeadline(t time.Time) error
 	SetReadDeadline(t time.Time) error
 	SetWriteDeadline(t time.Time) error
+	Transport() tpt.Transport
 
 	io.Reader
 	io.Writer

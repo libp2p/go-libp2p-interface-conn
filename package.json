@@ -30,6 +30,12 @@
       "hash": "QmQb6oCvHE6iqsFbuGtG32GWeXLmAV5bKkj1pv1rdSAZMA",
       "name": "go-maddr-filter",
       "version": "1.1.0"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmWMia2fBVBesMerbtApQY7Tj2sgTaziveBACfCRUcv45f",
+      "name": "go-libp2p-transport",
+      "version": "2.2.1"
     }
   ],
   "gxVersion": "0.9.1",
