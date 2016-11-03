@@ -51,7 +51,7 @@ type Conn interface {
 type Listener interface {
 
 	// Accept waits for and returns the next connection to the listener.
-	Accept() (Conn, error)
+	Accept() (tpt.Conn, error)
 
 	// Addr is the local address
 	Addr() net.Addr
