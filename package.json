@@ -33,9 +33,9 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmWMia2fBVBesMerbtApQY7Tj2sgTaziveBACfCRUcv45f",
+      "hash": "QmTyVPmpAduEErwdAgbyhzcVQ436cVQHaxhWKr6NBPjsnt",
       "name": "go-libp2p-transport",
-      "version": "2.2.1"
+      "version": "2.2.3"
     }
   ],
   "gxVersion": "0.9.1",
@@ -43,6 +43,6 @@
   "license": "",
   "name": "go-libp2p-interface-conn",
   "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
-  "version": "0.4.0"
+  "version": "0.4.1"
 }
 
