@@ -21,7 +21,7 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmQ1FYwmfL2jSvLKeXd6i47cSS23bWVMGqGxeh9nv8xwry",
+      "hash": "QmbKtZxyDqUJp7Ad8tGr5nrLqoi9nfgqFxcNbmLJbfaHPe",
       "name": "go-libp2p-peer",
       "version": "2.1.0"
     },
@@ -36,6 +36,12 @@
       "hash": "QmR4YrM1DdvYmox249o8aday8oiotkcsT1Qzv42ujPEQDb",
       "name": "go-libp2p-transport",
       "version": "2.2.3"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmZuY8aV7zbNXVy6DyN9SmnuH3o9nG852F4aTiSBpts8d1",
+      "name": "go-ipfs-util",
+      "version": "1.2.1"
     }
   ],
   "gxVersion": "0.9.1",
@@ -43,6 +49,6 @@
   "license": "",
   "name": "go-libp2p-interface-conn",
   "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
-  "version": "0.4.2"
+  "version": "0.4.3"
 }
 
