@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io"
 	"net"
-	"time"
 
 	u "github.com/ipfs/go-ipfs-util"
 	smux "github.com/jbenet/go-stream-muxer"
@@ -40,9 +39,6 @@ type Conn interface {
 
 	LocalAddr() net.Addr
 	RemoteAddr() net.Addr
-	SetDeadline(t time.Time) error
-	SetReadDeadline(t time.Time) error
-	SetWriteDeadline(t time.Time) error
 
 	Transport() tpt.Transport
 
