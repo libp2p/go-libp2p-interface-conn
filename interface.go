@@ -6,11 +6,11 @@ import (
 	"net"
 
 	u "github.com/ipfs/go-ipfs-util"
-	smux "github.com/jbenet/go-stream-muxer"
 	ic "github.com/libp2p/go-libp2p-crypto"
 	peer "github.com/libp2p/go-libp2p-peer"
 	tpt "github.com/libp2p/go-libp2p-transport"
 	filter "github.com/libp2p/go-maddr-filter"
+	smux "github.com/libp2p/go-stream-muxer"
 	ma "github.com/multiformats/go-multiaddr"
 )
 
