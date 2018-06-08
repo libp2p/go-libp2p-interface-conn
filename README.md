@@ -1,5 +1,19 @@
-go-libp2p-interface-conn
-==================
+[DEPRECATED] go-libp2p-interface-conn
+=====================================
+
+This package has been deprecated and is no loner used by go-libp2p. Libp2p used
+to build up connections as follows:
+
+1. go "net" conn
+2. multiaddr conn -- net conn with multiaddrs
+3. go-libp2p-transport conn -- multiaddr conns with associated transports
+4. this package -- secured, multiplexed connections
+5. go-libp2p-net conn -- connections associated with a Network (e.g., go-libp2p-swarm).
+
+However, go-libp2p-transport connections are now fully secured and multiplexed
+so the interfaces in this package have been subsumed by those in
+go-libp2p-transport.
+
 
 [![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://ipn.io)
 [![](https://img.shields.io/badge/project-IPFS-blue.svg?style=flat-square)](http://libp2p.io/)
