@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"io"
 	"net"
-	"time"
 
 	u "github.com/ipfs/go-ipfs-util"
 	ic "github.com/libp2p/go-libp2p-crypto"
 	peer "github.com/libp2p/go-libp2p-peer"
 	tpt "github.com/libp2p/go-libp2p-transport"
 	filter "github.com/libp2p/go-maddr-filter"
+	smux "github.com/libp2p/go-stream-muxer"
 	ma "github.com/multiformats/go-multiaddr"
 )
 
@@ -28,30 +28,36 @@ type PeerConn interface {
 	RemoteMultiaddr() ma.Multiaddr
 }
 
-// Conn is a generic message-based Peer-to-Peer connection.
+// Conn is a generic multi-stream message-based Peer-to-Peer connection.
+// It contains the PeerConn interface
+// (unfortunately Go still doesn't allow duplicate interface methods...)
 type Conn interface {
-	PeerConn
+	smux.Conn
 
 	// ID is an identifier unique to this connection.
 	ID() string
 
-	// can't just say "net.Conn" cause we have duplicate methods.
 	LocalAddr() net.Addr
 	RemoteAddr() net.Addr
-	SetDeadline(t time.Time) error
-	SetReadDeadline(t time.Time) error
-	SetWriteDeadline(t time.Time) error
+
 	Transport() tpt.Transport
 
-	io.Reader
-	io.Writer
+	// LocalPeer (this side) ID, PrivateKey, and Address
+	LocalPeer() peer.ID
+	LocalPrivateKey() ic.PrivKey
+	LocalMultiaddr() ma.Multiaddr
+
+	// RemotePeer ID, PublicKey, and Address
+	RemotePeer() peer.ID
+	RemotePublicKey() ic.PubKey
+	RemoteMultiaddr() ma.Multiaddr
 }
 
 // Listener is an object that can accept connections. It matches net.Listener
 type Listener interface {
 
 	// Accept waits for and returns the next connection to the listener.
-	Accept() (tpt.Conn, error)
+	Accept() (Conn, error)
 
 	// Addr is the local address
 	Addr() net.Addr
